@@ -1,0 +1,18 @@
+git init
+	Reinitialized existing Git repository in C:/1_workspace/1_customer_order_aggregate-microservices/.git/
+git add .
+
+git commit -m "1st commit"
+
+git remote add origin https://github.com/sashijei/1_microservices.git
+
+git push origin master
+
+git push --set-upstream origin master
+
+git add .
+	if any new file(s) added
+
+git commit -m "Adding parent folder"
+
+git push
