@@ -1,0 +1,54 @@
+{
+	"info": {
+		"_postman_id": "67da3972-0994-4f4c-b2fb-e2537d654d8f",
+		"name": "Eureka_server1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6313933",
+		"_collection_link": "https://crimson-crater-774930.postman.co/workspace/New-Team-Workspace~fe3d8162-a1b3-4301-9d85-e77e41404828/collection/6313933-67da3972-0994-4f4c-b2fb-e2537d654d8f?action=share&source=collection_link&creator=6313933"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8081/api/customers/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/customers/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/api/aggregator/customer/5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/aggregator/customer/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"aggregator",
+						"customer",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
