@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+
 @RestController 
 @RequestMapping("/api/aggregator")
 public class CustomerClient {
@@ -20,6 +21,14 @@ public class CustomerClient {
 		// uses Eureka client-side discovery
 		String url = "http://customer-service/api/customers/" + id;
 		
-		return restTemplate.getForObject(url, Object.class);
+		System.out.println("client-side-discovery : CustomerClient : getCustomer() : \n"
+				+ "Going to invoke the customer-service." );
+		
+		Object object = restTemplate.getForObject(url, Object.class);
+		
+		System.out.println("client-side-discovery : CustomerClient : getCustomer() : \n"
+				+ "calling is completed, returning the object to client (browswer)" );
+		
+		return object;
 	}
 }

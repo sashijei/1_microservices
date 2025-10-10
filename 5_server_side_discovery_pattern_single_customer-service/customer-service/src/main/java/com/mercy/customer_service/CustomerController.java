@@ -15,7 +15,7 @@ public class CustomerController {
 	public Map<String, Object> getCustomer(@PathVariable Long id) {
 		
 		System.out.println("customer-service: CustomerController : getCustomer() is called");
-		
+
 		// just hard-coding the values
 		return Map.of("id", id, "name", "Angel", "email", "mercy@gmail.com");
 	}
