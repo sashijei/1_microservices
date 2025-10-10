@@ -1,0 +1,31 @@
+{
+	"info": {
+		"_postman_id": "2197c877-953b-451e-b030-a787d34456fd",
+		"name": "5_server_side_discovery_three_product-order-payment_services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6313933",
+		"_collection_link": "https://crimson-crater-774930.postman.co/workspace/New-Team-Workspace~fe3d8162-a1b3-4301-9d85-e77e41404828/collection/6313933-2197c877-953b-451e-b030-a787d34456fd?action=share&source=collection_link&creator=6313933"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/orders/5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
