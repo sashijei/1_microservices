@@ -11,4 +11,5 @@ public class CurrencyExchange {
 	private final String from;
 	private final String to;
 	private final BigDecimal conversionMultiple;
+	private final String environment;
 }
