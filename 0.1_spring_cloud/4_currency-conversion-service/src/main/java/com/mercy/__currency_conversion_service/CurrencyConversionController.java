@@ -13,6 +13,10 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 /**
+ * REST controller to handle currency conversion requests.
+ * It calls another microservice via RestTemplate to get currency exchange rates
+ * and calculates the total converted amount based on the requested quantity.
+ * 
  * Author : Sasi Kumar
  */
 @RestController
@@ -21,6 +25,18 @@ public class CurrencyConversionController {
 	@Autowired
 	private RestTemplate restTemplate;
 
+	  /**
+     * Converts a specified quantity from one currency to another.
+     *
+     * @param from     The source currency code (e.g., USD)
+     * @param to       The target currency code (e.g., INR)
+     * @param quantity The quantity of the source currency to convert
+     * @return A CurrencyConversion object containing exchange rate and calculated total
+     *
+     * This method constructs the URI to call the currency exchange microservice,
+     * expands the path variables in the URI properly, makes a REST GET request, and
+     * then computes the total converted amount by multiplying the quantity with the conversion multiple.
+     */
 	@GetMapping("/currency-conversion/from/{from}/to/{to}/quantity/{quantity}")
 	public CurrencyConversion convertCurrency(@PathVariable String from,
 			@PathVariable String to, @PathVariable BigDecimal quantity) {
