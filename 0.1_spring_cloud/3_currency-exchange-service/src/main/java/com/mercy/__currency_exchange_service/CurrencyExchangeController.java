@@ -21,7 +21,7 @@ public class CurrencyExchangeController {
 		var obj = repo.findByFromAndTo(from, to);
 
 		String port = env.getProperty("local.server.port");
-		obj.setPort(port);
+		obj.setEnvironment(port);
 		
 		return obj;
 	} 

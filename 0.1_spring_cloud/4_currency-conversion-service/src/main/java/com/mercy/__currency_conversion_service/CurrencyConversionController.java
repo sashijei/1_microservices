@@ -53,7 +53,8 @@ public class CurrencyConversionController {
 		return new CurrencyConversion(obj.getId(), 
 				obj.getFrom(), 
 				obj.getTo(), 
-				obj.getQuantity(), obj.getConversionMultiple(), 
+				quantity,
+				obj.getConversionMultiple(), 
 				quantity.multiply(obj.getConversionMultiple()), 
 				obj.getEnvironment());
 	}
