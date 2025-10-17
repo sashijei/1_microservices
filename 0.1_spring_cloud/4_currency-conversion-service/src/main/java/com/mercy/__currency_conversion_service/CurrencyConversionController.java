@@ -17,7 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
  * It calls another microservice via RestTemplate to get currency exchange rates
  * and calculates the total converted amount based on the requested quantity.
  * 
- * Author : Sasi Kumar
+ * @author Sasi Kumar
  */
 @RestController
 public class CurrencyConversionController {
