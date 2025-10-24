@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping("/customers")
+@RequestMapping("/customer-api")
 public class CustomerController {
 
 	@Autowired
@@ -29,14 +29,14 @@ public class CustomerController {
 		return repo.save(customer);
 	}
 
-	@GetMapping("{id}")
+	@GetMapping("/{id}")
 	public Customer getCustomerById(@PathVariable Long id) {
 		return repo.findById(id).orElseThrow();
 	}
 	
-	@GetMapping("/order/{id}")
+	@GetMapping("/order/customer/{id}")
 	public List<OrderDTO> getCustomerOrder(@PathVariable Long id) {
-		String url = "http://localhost:8081/api/order/customer/" +id; 
+		String url = "http://localhost:8081//order-api/customer/" +id; 
 		OrderDTO[] orders = restTemplate.getForObject(url, OrderDTO[].class);
 		return Arrays.asList(orders);
 	}

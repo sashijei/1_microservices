@@ -24,6 +24,9 @@ public class CurrencyConversionController {
 
 	@Autowired
 	private RestTemplate restTemplate;
+	
+	@Autowired
+	private CurrencyExchangeProxy proxy;
 
 	  /**
      * Converts a specified quantity from one currency to another.
@@ -58,10 +61,25 @@ public class CurrencyConversionController {
 				quantity.multiply(obj.getConversionMultiple()), 
 				obj.getEnvironment());
 	}
-}
+	
+	@GetMapping("/currency-conversion-feign/from/{from}/to/{to}/quantity/{quantity}")
+	public CurrencyConversion convertCurrencyFeign(@PathVariable String from,
+			@PathVariable String to, @PathVariable BigDecimal quantity) {
+
+		CurrencyConversion obj = proxy.retrieveExchangeValue(from, to);
+
+		return new CurrencyConversion(obj.getId(), 
+				obj.getFrom(), 
+				obj.getTo(), 
+				quantity,
+				obj.getConversionMultiple(), 
+				quantity.multiply(obj.getConversionMultiple()), 
+				obj.getEnvironment() + " : feign");
+	}
+} 
 
 @Configuration
-class AppConfig {
+class AppConfig { 
 
 	@Bean
 	public RestTemplate restTemplate() {
