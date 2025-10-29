@@ -15,25 +15,16 @@ public class ApiGatewayConfiguration {
 	
 	@Bean
 	public RouteLocator gatewayRouter(RouteLocatorBuilder builder) {
+		 
+			// Defining the routing logic and returning 
 		
-			// Defining the routing logic here
-			Function<PredicateSpec, Buildable<Route>> currencyExchangeRouteFunction 
-				= p -> p.path("/currency-exchange/**")
-								.uri("lb://currency-exchange");
-			 
-			Function<PredicateSpec, Buildable<Route>> currencyConversionRouteFunction 
-				= p -> p.path("/currency-conversion/**")
-								.uri("lb://currency-conversion");
-				
-			Function<PredicateSpec, Buildable<Route>> currencyConversionFeignRouteFunction 
-				= p -> p.path("/currency-conversion-feign/**")
-								.uri("lb://currency-conversion");
-				
 			return builder.routes()
-					.route(currencyExchangeRouteFunction)
-					.route(currencyConversionRouteFunction)
-					.route(currencyConversionFeignRouteFunction)
+					.route(p -> p.path("/currency-exchange/**")
+									.uri("lb://currency-exchange"))
+					.route(p -> p.path("/currency-conversion/**")
+									.uri("lb://currency-conversion"))
+					.route(p -> p.path("/currency-conversion-feign/**")
+									.uri("lb://currency-conversion"))
 					.build();
-		
 	}
 }
