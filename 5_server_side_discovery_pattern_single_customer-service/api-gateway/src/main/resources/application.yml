@@ -9,13 +9,26 @@ spring:
       discovery:
         locator:
           enabled: true
-          lowerCaseServiceId: true
+        lower-case-service-id: true
       routes:
+        - id: currency-exchange
+          uri: lb://currency-exchange
+          predicates:
+            - Path=/currency-exchange/**
+        - id: currency-conversion
+          uri: lb://currency-conversion
+          predicates:
+            - Path=/currency-conversion/**
+        - id: currency-conversion-feign
+          uri: lb://currency-conversion
+          predicates:
+            - Path=/currency-conversion-feign/**
+
         - id: customer-service
           uri: lb://customer-service
           predicates:
             - Path=/api/customers/**
-
+            
 eureka:
   client:
     service-url:
